@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".MainActivity">
+
+    <!--    Horizontal guidelines-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glh_5pc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glh_10pc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glh_15pc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glh_20pc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glh_25pc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glh_30pc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glh_35pc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glh_40pc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glh_45pc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glh_50pc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glh_55pc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glh_60pc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glh_65pc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65"
+        app:layout_constraintTop_toTopOf="parent" />
+
+<!--    <androidx.constraintlayout.widget.Guideline-->
+<!--        android:id="@+id/glh_75pc"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintGuide_percent="0.75"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glh_90pc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glh_95pc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <!--    End of Horizontal guidelines-->
+
+    <!--    Vertical guidelines-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glv_20pc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glv_40pc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glv_60pc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".6" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glv_80pc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".8" />
+    <!--    End of Vertical guidelines-->
+
+    <!--    Event Form Section-->
+    <TextView
+        android:id="@+id/eventFormTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Event Form"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/glh_5pc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/eventTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Event Title:"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@id/glh_10pc"
+        app:layout_constraintEnd_toEndOf="@id/glv_40pc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/glh_5pc" />
+
+    <TextView
+        android:id="@+id/eventStartTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start time:"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@id/glh_15pc"
+        app:layout_constraintEnd_toEndOf="@id/glv_40pc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/glh_10pc" />
+
+    <TextView
+        android:id="@+id/eventEndTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="End time:"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@id/glh_20pc"
+        app:layout_constraintEnd_toEndOf="@id/glv_40pc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/glh_15pc" />
+
+    <TextView
+        android:id="@+id/eventAllDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="All Day Event:"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@id/glh_25pc"
+        app:layout_constraintEnd_toEndOf="@id/glv_40pc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/glh_20pc" />
+
+    <TextView
+        android:id="@+id/eventDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Event Description:"
+        android:paddingBottom="70dp"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@id/glh_40pc"
+        app:layout_constraintEnd_toEndOf="@id/glv_40pc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/glh_25pc" />
+
+    <TextView
+        android:id="@+id/eventEmails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Invitees Email:"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@id/glh_45pc"
+        app:layout_constraintEnd_toEndOf="@id/glv_40pc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/glh_40pc" />
+
+    <TextView
+        android:id="@+id/eventAccessType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Access Type:"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@id/glh_50pc"
+        app:layout_constraintEnd_toEndOf="@id/glv_40pc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/glh_45pc" />
+
+        <Button
+            android:id="@+id/addEventBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="addEvent"
+            android:text="Add Event"
+            app:layout_constraintBottom_toTopOf="@id/glh_60pc"
+            app:layout_constraintEnd_toEndOf="@id/glv_40pc"
+            app:layout_constraintStart_toStartOf="@id/glv_20pc"
+            app:layout_constraintTop_toBottomOf="@id/glh_50pc" />
+
+        <Button
+            android:id="@+id/calendarBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="openCalendar"
+            android:text="Calendar"
+            app:layout_constraintBottom_toTopOf="@id/glh_60pc"
+            app:layout_constraintEnd_toEndOf="@id/glv_80pc"
+            app:layout_constraintStart_toStartOf="@id/glv_60pc"
+            app:layout_constraintTop_toBottomOf="@id/glh_50pc" />
+
+    <!--    End of Event Entry Section-->
+
+    <!--    Call Section-->
+
+        <EditText
+            android:id="@+id/phoneNumberField"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="10 digit phone number"
+            android:hint="Enter phone number!"
+            android:inputType="phone"
+            android:minHeight="48dp"
+            android:textColorHint="#757575"
+            app:layout_constraintBottom_toTopOf="@id/glh_65pc"
+            app:layout_constraintEnd_toEndOf="@id/glv_80pc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/glh_60pc" />
+
+        <Button
+            android:id="@+id/callBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="makeCall"
+            android:text="Dial"
+            app:layout_constraintBottom_toTopOf="@id/glh_65pc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/glv_80pc"
+            app:layout_constraintTop_toBottomOf="@id/glh_60pc" />
+
+    <!--    End of Call Section-->
+
+    <!--    Photo Section-->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        android:contentDescription="image from camera app"
+        app:layout_constraintBottom_toTopOf="@id/glh_95pc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/glh_65pc"
+        app:srcCompat="@android:color/background_light" />
+
+        <Button
+            android:id="@+id/cameraBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="openCameraApp"
+            android:text="Camera"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/glh_95pc"
+            app:srcCompat="@android:color/background_light" />
+
+    <!--    End of Photo Section-->
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Implicit_Intent</string>
+    //array for am/pm for min picker in the event
+    <string-array name="am_pm_options">
+        <item>AM</item>
+        <item>PM</item>
+    </string-array>
 </resources>

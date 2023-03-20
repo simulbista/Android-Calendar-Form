@@ -63,6 +63,14 @@ import android.widget.Toast;
          }
      }
 
+     public void addEvent(View view) {
+        //event title
+         EditText eventTitleInput = findViewById(R.id.eventTitleInput);
+         String eTitle = eventTitleInput.getText().toString();
+         //event title
+
+     }
+
 
      //phone number validator helper method
      public boolean validatePhoneNumber(String phoneNumber) {
@@ -70,4 +78,5 @@ import android.widget.Toast;
          String regex = "^\\(?([0-9]{3})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})$";
          return phoneNumber.matches(regex);
      }
+
  }

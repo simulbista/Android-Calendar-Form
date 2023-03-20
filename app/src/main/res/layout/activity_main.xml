@@ -113,13 +113,6 @@
         app:layout_constraintGuide_percent="0.65"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <androidx.constraintlayout.widget.Guideline-->
-<!--        android:id="@+id/glh_75pc"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal"-->
-<!--        app:layout_constraintGuide_percent="0.75"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/glh_90pc"
@@ -154,6 +147,13 @@
         app:layout_constraintGuide_percent=".4" />
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glv_50pc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".5" />
+
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/glv_60pc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -161,11 +161,25 @@
         app:layout_constraintGuide_percent=".6" />
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glv_70pc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".7" />
+
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/glv_80pc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent=".8" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glv_90pc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".9" />
     <!--    End of Vertical guidelines-->
 
     <!--    Event Form Section-->
@@ -191,6 +205,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/glh_5pc" />
 
+    <EditText
+        android:id="@+id/eventTitleInput"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:autofillHints="10 digit phone number"
+        android:hint="Enter event title!"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toTopOf="@id/glh_10pc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/glv_40pc"
+        app:layout_constraintTop_toBottomOf="@id/glh_5pc" />
+
     <TextView
         android:id="@+id/eventStartTime"
         android:layout_width="wrap_content"
@@ -201,6 +229,77 @@
         app:layout_constraintEnd_toEndOf="@id/glv_40pc"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/glh_10pc" />
+    <!--    <TimePicker-->
+    <!--        android:id="@+id/eventStartTimeInput"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="40dp"-->
+    <!--        android:layout_gravity="center"-->
+    <!--        android:timePickerMode="spinner"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/glh_15pc"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/glh_10pc"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="@id/glv_40pc"-->
+    <!--        />-->
+
+    <NumberPicker
+        android:id="@+id/eventStartTimeHour"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:max="12"
+        android:min="1"
+        android:value="8"
+        app:layout_constraintBottom_toTopOf="@id/glh_15pc"
+        app:layout_constraintEnd_toEndOf="@id/glv_50pc"
+        app:layout_constraintStart_toStartOf="@id/glv_40pc"
+        app:layout_constraintTop_toBottomOf="@id/glh_10pc" />
+
+    <TextView
+        android:id="@+id/eventStaticHour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hr"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@id/glh_15pc"
+        app:layout_constraintEnd_toEndOf="@id/glv_60pc"
+        app:layout_constraintStart_toStartOf="@id/glv_50pc"
+        app:layout_constraintTop_toBottomOf="@id/glh_10pc" />
+
+    <NumberPicker
+        android:id="@+id/eventStartTimeMin"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:max="59"
+        android:min="0"
+        android:value="0"
+        app:layout_constraintBottom_toTopOf="@id/glh_15pc"
+        app:layout_constraintEnd_toEndOf="@id/glv_70pc"
+        app:layout_constraintStart_toStartOf="@id/glv_60pc"
+        app:layout_constraintTop_toBottomOf="@id/glh_10pc"/>
+
+    <TextView
+        android:id="@+id/eventStaticMin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="min"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@id/glh_15pc"
+        app:layout_constraintEnd_toEndOf="@id/glv_80pc"
+        app:layout_constraintStart_toStartOf="@id/glv_70pc"
+        app:layout_constraintTop_toBottomOf="@id/glh_10pc" />
+
+
+    <Spinner
+        android:id="@+id/eventStartTimeAmPm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/am_pm_options"
+        app:layout_constraintBottom_toTopOf="@id/glh_15pc"
+        app:layout_constraintEnd_toEndOf="@id/glh_90pc"
+        app:layout_constraintStart_toStartOf="@id/glv_80pc"
+        app:layout_constraintTop_toBottomOf="@id/glh_10pc"/>
+
 
     <TextView
         android:id="@+id/eventEndTime"
@@ -211,6 +310,19 @@
         app:layout_constraintBottom_toTopOf="@id/glh_20pc"
         app:layout_constraintEnd_toEndOf="@id/glv_40pc"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/glh_15pc" />
+
+    <EditText
+        android:id="@+id/eventEndTimeInput"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter event end time"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toTopOf="@id/glh_20pc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/glv_40pc"
         app:layout_constraintTop_toBottomOf="@id/glh_15pc" />
 
     <TextView
@@ -224,16 +336,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/glh_20pc" />
 
+    <ToggleButton
+        android:id="@+id/eventAllDayInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:textOff="Off"
+        android:textOn="On"
+        app:layout_constraintBottom_toTopOf="@id/glh_25pc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/glv_40pc"
+        app:layout_constraintTop_toBottomOf="@id/glh_20pc" />
+
     <TextView
         android:id="@+id/eventDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Event Description:"
         android:paddingBottom="70dp"
+        android:text="Event Description:"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@id/glh_40pc"
         app:layout_constraintEnd_toEndOf="@id/glv_40pc"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/glh_25pc" />
+
+    <EditText
+        android:id="@+id/eventDescInput"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter event description!"
+        android:inputType="textMultiLine"
+        android:maxLines="3"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toTopOf="@id/glh_40pc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/glv_40pc"
         app:layout_constraintTop_toBottomOf="@id/glh_25pc" />
 
     <TextView
@@ -247,6 +385,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/glh_40pc" />
 
+    <EditText
+        android:id="@+id/eventEmailsInput"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter invitees email(s)!"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toTopOf="@id/glh_45pc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/glv_40pc"
+        app:layout_constraintTop_toBottomOf="@id/glh_40pc" />
+
     <TextView
         android:id="@+id/eventAccessType"
         android:layout_width="wrap_content"
@@ -258,58 +409,82 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/glh_45pc" />
 
-        <Button
-            android:id="@+id/addEventBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="addEvent"
-            android:text="Add Event"
-            app:layout_constraintBottom_toTopOf="@id/glh_60pc"
-            app:layout_constraintEnd_toEndOf="@id/glv_40pc"
-            app:layout_constraintStart_toStartOf="@id/glv_20pc"
-            app:layout_constraintTop_toBottomOf="@id/glh_50pc" />
+    <RadioGroup
+        android:id="@+id/eventAccessTypeGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/glh_50pc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/glv_40pc"
+        app:layout_constraintTop_toBottomOf="@id/glh_45pc">
 
-        <Button
-            android:id="@+id/calendarBtn"
+        <RadioButton
+            android:id="@+id/radioButton1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:onClick="openCalendar"
-            android:text="Calendar"
-            app:layout_constraintBottom_toTopOf="@id/glh_60pc"
-            app:layout_constraintEnd_toEndOf="@id/glv_80pc"
-            app:layout_constraintStart_toStartOf="@id/glv_60pc"
-            app:layout_constraintTop_toBottomOf="@id/glh_50pc" />
+            android:checked="true"
+            android:text="Public" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Private" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/addEventBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="addEvent"
+        android:text="Add Event"
+        app:layout_constraintBottom_toTopOf="@id/glh_60pc"
+        app:layout_constraintEnd_toEndOf="@id/glv_40pc"
+        app:layout_constraintStart_toStartOf="@id/glv_20pc"
+        app:layout_constraintTop_toBottomOf="@id/glh_50pc" />
+
+    <Button
+        android:id="@+id/calendarBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:onClick="openCalendar"
+        android:text="Calendar"
+        app:layout_constraintBottom_toTopOf="@id/glh_60pc"
+        app:layout_constraintEnd_toEndOf="@id/glv_80pc"
+        app:layout_constraintStart_toStartOf="@id/glv_60pc"
+        app:layout_constraintTop_toBottomOf="@id/glh_50pc" />
 
     <!--    End of Event Entry Section-->
 
     <!--    Call Section-->
 
-        <EditText
-            android:id="@+id/phoneNumberField"
-            android:layout_width="230dp"
-            android:layout_height="wrap_content"
-            android:autofillHints="10 digit phone number"
-            android:hint="Enter phone number!"
-            android:inputType="phone"
-            android:minHeight="48dp"
-            android:textColorHint="#757575"
-            app:layout_constraintBottom_toTopOf="@id/glh_65pc"
-            app:layout_constraintEnd_toEndOf="@id/glv_80pc"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/glh_60pc" />
+    <EditText
+        android:id="@+id/phoneNumberField"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:autofillHints="10 digit phone number"
+        android:hint="Enter phone number!"
+        android:inputType="phone"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toTopOf="@id/glh_65pc"
+        app:layout_constraintEnd_toEndOf="@id/glv_80pc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/glh_60pc" />
 
-        <Button
-            android:id="@+id/callBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:onClick="makeCall"
-            android:text="Dial"
-            app:layout_constraintBottom_toTopOf="@id/glh_65pc"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/glv_80pc"
-            app:layout_constraintTop_toBottomOf="@id/glh_60pc" />
+    <Button
+        android:id="@+id/callBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:onClick="makeCall"
+        android:text="Dial"
+        app:layout_constraintBottom_toTopOf="@id/glh_65pc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/glv_80pc"
+        app:layout_constraintTop_toBottomOf="@id/glh_60pc" />
 
     <!--    End of Call Section-->
 
@@ -326,23 +501,20 @@
         app:layout_constraintTop_toBottomOf="@id/glh_65pc"
         app:srcCompat="@android:color/background_light" />
 
-        <Button
-            android:id="@+id/cameraBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:onClick="openCameraApp"
-            android:text="Camera"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/glh_95pc"
-            app:srcCompat="@android:color/background_light" />
+    <Button
+        android:id="@+id/cameraBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:onClick="openCameraApp"
+        android:text="Camera"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/glh_95pc"
+        app:srcCompat="@android:color/background_light" />
 
     <!--    End of Photo Section-->
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+<!--    all day event switch colors-->
+    <!-- Define the color for the thumb of the switch -->
+    <color name="switch_thumb_color">#FFFFFF</color>
+
+    <!-- Define the color for the track of the switch in its OFF state -->
+    <color name="switch_track_color_off">#AAAAAA</color>
+
+    <!-- Define the color for the track of the switch in its ON state -->
+    <color name="switch_track_color_on">@color/teal_200</color>
 </resources>

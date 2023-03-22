@@ -140,6 +140,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glv_30pc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".3" />
+
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/glv_40pc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -198,10 +205,10 @@
         android:id="@+id/eventTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Event Title:"
+        android:text="Event Title *:"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@id/glh_10pc"
-        app:layout_constraintEnd_toEndOf="@id/glv_40pc"
+        app:layout_constraintEnd_toEndOf="@id/glv_30pc"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/glh_5pc" />
 
@@ -216,137 +223,218 @@
         android:textColorHint="#757575"
         app:layout_constraintBottom_toTopOf="@id/glh_10pc"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/glv_40pc"
+        app:layout_constraintStart_toStartOf="@id/glv_30pc"
         app:layout_constraintTop_toBottomOf="@id/glh_5pc" />
 
     <TextView
-        android:id="@+id/eventStartTime"
+        android:id="@+id/eventStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start time:"
+        android:text="Starts *:"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@id/glh_15pc"
-        app:layout_constraintEnd_toEndOf="@id/glv_40pc"
+        app:layout_constraintEnd_toEndOf="@id/glv_30pc"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/glh_10pc" />
-    <!--    <TimePicker-->
-    <!--        android:id="@+id/eventStartTimeInput"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="40dp"-->
-    <!--        android:layout_gravity="center"-->
-    <!--        android:timePickerMode="spinner"-->
-    <!--        app:layout_constraintBottom_toTopOf="@id/glh_15pc"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/glh_10pc"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="@id/glv_40pc"-->
-    <!--        />-->
 
-    <NumberPicker
-        android:id="@+id/eventStartTimeHour"
+<!--    start-time input fields (hour, min and am/pm-->
+    <Button
+        android:id="@+id/eventStartDateBtn"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:max="12"
-        android:min="1"
-        android:value="8"
-        app:layout_constraintBottom_toTopOf="@id/glh_15pc"
-        app:layout_constraintEnd_toEndOf="@id/glv_50pc"
-        app:layout_constraintStart_toStartOf="@id/glv_40pc"
-        app:layout_constraintTop_toBottomOf="@id/glh_10pc" />
-
-    <TextView
-        android:id="@+id/eventStaticHour"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="hr"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@id/glh_15pc"
-        app:layout_constraintEnd_toEndOf="@id/glv_60pc"
-        app:layout_constraintStart_toStartOf="@id/glv_50pc"
-        app:layout_constraintTop_toBottomOf="@id/glh_10pc" />
-
-    <NumberPicker
-        android:id="@+id/eventStartTimeMin"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:max="59"
-        android:min="0"
-        android:value="0"
+        android:layout_height="38dp"
+        android:text=""
+        android:onClick="setStartDate"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toTopOf="@id/glh_15pc"
         app:layout_constraintEnd_toEndOf="@id/glv_70pc"
-        app:layout_constraintStart_toStartOf="@id/glv_60pc"
-        app:layout_constraintTop_toBottomOf="@id/glh_10pc"/>
+        app:layout_constraintStart_toStartOf="@id/glv_30pc"
+        app:layout_constraintTop_toBottomOf="@id/glh_10pc" />
 
-    <TextView
-        android:id="@+id/eventStaticMin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="min"
-        android:textSize="15sp"
+    <Button
+        android:id="@+id/eventStartTimeBtn"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:text=""
+        android:onClick="setStartTime"
+        android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toTopOf="@id/glh_15pc"
-        app:layout_constraintEnd_toEndOf="@id/glv_80pc"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/glv_70pc"
         app:layout_constraintTop_toBottomOf="@id/glh_10pc" />
 
+<!--    <TextView-->
+<!--        android:id="@+id/eventStartStaticHour"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="hr"-->
+<!--        android:textSize="15sp"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/glh_15pc"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/glv_60pc"-->
+<!--        app:layout_constraintStart_toStartOf="@id/glv_50pc"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/glh_10pc" />-->
 
-    <Spinner
-        android:id="@+id/eventStartTimeAmPm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:entries="@array/am_pm_options"
-        app:layout_constraintBottom_toTopOf="@id/glh_15pc"
-        app:layout_constraintEnd_toEndOf="@id/glh_90pc"
-        app:layout_constraintStart_toStartOf="@id/glv_80pc"
-        app:layout_constraintTop_toBottomOf="@id/glh_10pc"/>
+<!--    <EditText-->
+<!--        android:id="@+id/eventStartTimeMin"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="0"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/glh_15pc"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/glv_70pc"-->
+<!--        app:layout_constraintStart_toStartOf="@id/glv_60pc"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/glh_10pc"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/eventStartStaticMin"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="min"-->
+<!--        android:textSize="15sp"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/glh_15pc"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/glv_80pc"-->
+<!--        app:layout_constraintStart_toStartOf="@id/glv_70pc"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/glh_10pc" />-->
+
+
+<!--    <Spinner-->
+<!--        android:id="@+id/eventStartTimeAmPm"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:entries="@array/am_pm_options"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/glh_15pc"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/glh_90pc"-->
+<!--        app:layout_constraintStart_toStartOf="@id/glv_80pc"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/glh_10pc"/>-->
+
+    <!--    end of start-time input fields (hour, min and am/pm-->
 
 
     <TextView
-        android:id="@+id/eventEndTime"
+        android:id="@+id/eventEnd"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="End time:"
+        android:layout_height="0dp"
+        android:text="Ends *:"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@id/glh_20pc"
-        app:layout_constraintEnd_toEndOf="@id/glv_40pc"
+        app:layout_constraintEnd_toEndOf="@id/glv_30pc"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/glh_15pc" />
 
-    <EditText
-        android:id="@+id/eventEndTimeInput"
-        android:layout_width="230dp"
-        android:layout_height="wrap_content"
-        android:hint="Enter event end time"
-        android:inputType="text"
-        android:minHeight="48dp"
-        android:textColorHint="#757575"
+
+    <!--    end time input fields (hour, min and am/pm-->
+
+    <Button
+        android:id="@+id/eventEndDateBtn"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:text=""
+        android:onClick="setEndDate"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@id/glh_20pc"
+        app:layout_constraintEnd_toEndOf="@id/glv_70pc"
+        app:layout_constraintStart_toStartOf="@id/glv_30pc"
+        app:layout_constraintTop_toBottomOf="@id/glh_15pc" />
+
+    <Button
+        android:id="@+id/eventEndTimeBtn"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:text=""
+        android:onClick="setEndTime"
+        android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toTopOf="@id/glh_20pc"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/glv_40pc"
+        app:layout_constraintStart_toStartOf="@id/glv_70pc"
         app:layout_constraintTop_toBottomOf="@id/glh_15pc" />
+<!--    <EditText-->
+<!--        android:id="@+id/eventEndTimeHour"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="12"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/glh_20pc"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/glv_50pc"-->
+<!--        app:layout_constraintStart_toStartOf="@id/glv_30pc"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/glh_15pc" />-->
 
-    <TextView
-        android:id="@+id/eventAllDay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="All Day Event:"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@id/glh_25pc"
-        app:layout_constraintEnd_toEndOf="@id/glv_40pc"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/glh_20pc" />
+<!--    <TextView-->
+<!--        android:id="@+id/eventEndStaticHour"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="hr"-->
+<!--        android:textSize="15sp"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/glh_20pc"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/glv_60pc"-->
+<!--        app:layout_constraintStart_toStartOf="@id/glv_50pc"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/glh_15pc" />-->
 
-    <ToggleButton
+<!--    <EditText-->
+<!--        android:id="@+id/eventEndTimeMin"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="0"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/glh_20pc"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/glv_70pc"-->
+<!--        app:layout_constraintStart_toStartOf="@id/glv_60pc"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/glh_15pc"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/eventEndStaticMin"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="min"-->
+<!--        android:textSize="15sp"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/glh_20pc"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/glv_80pc"-->
+<!--        app:layout_constraintStart_toStartOf="@id/glv_70pc"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/glh_15pc" />-->
+
+
+<!--    <Spinner-->
+<!--        android:id="@+id/eventEndTimeAmPm"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:entries="@array/am_pm_options"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/glh_20pc"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/glh_90pc"-->
+<!--        app:layout_constraintStart_toStartOf="@id/glv_80pc"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/glh_15pc"/>-->
+
+    <!--    end of end-time input fields (hour, min and am/pm-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/eventAllDay"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="All Day Event:"-->
+<!--        android:textSize="15sp"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/glh_25pc"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/glv_30pc"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/glh_20pc" />-->
+
+<!--    <ToggleButton-->
+<!--        android:id="@+id/eventAllDayInput"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:checked="true"-->
+<!--        android:textOff="Off"-->
+<!--        android:textOn="On"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/glh_25pc"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="@id/glv_30pc"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/glh_20pc" />-->
+    <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/eventAllDayInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:checked="true"
-        android:textOff="Off"
-        android:textOn="On"
+        android:text="All Day Event"
+        app:thumbTint="@color/switch_thumb_color"
+        app:trackTint="@color/switch_track_color_off"
         app:layout_constraintBottom_toTopOf="@id/glh_25pc"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/glv_40pc"
-        app:layout_constraintTop_toBottomOf="@id/glh_20pc" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/glh_20pc"/>
 
     <TextView
         android:id="@+id/eventDesc"
@@ -356,7 +444,7 @@
         android:text="Event Description:"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@id/glh_40pc"
-        app:layout_constraintEnd_toEndOf="@id/glv_40pc"
+        app:layout_constraintEnd_toEndOf="@id/glv_30pc"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/glh_25pc" />
 
@@ -371,17 +459,17 @@
         android:textColorHint="#757575"
         app:layout_constraintBottom_toTopOf="@id/glh_40pc"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/glv_40pc"
+        app:layout_constraintStart_toStartOf="@id/glv_30pc"
         app:layout_constraintTop_toBottomOf="@id/glh_25pc" />
 
     <TextView
         android:id="@+id/eventEmails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Invitees Email:"
+        android:text="Invitees Email: *"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@id/glh_45pc"
-        app:layout_constraintEnd_toEndOf="@id/glv_40pc"
+        app:layout_constraintEnd_toEndOf="@id/glv_30pc"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/glh_40pc" />
 
@@ -395,7 +483,7 @@
         android:textColorHint="#757575"
         app:layout_constraintBottom_toTopOf="@id/glh_45pc"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/glv_40pc"
+        app:layout_constraintStart_toStartOf="@id/glv_30pc"
         app:layout_constraintTop_toBottomOf="@id/glh_40pc" />
 
     <TextView
@@ -405,7 +493,7 @@
         android:text="Access Type:"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@id/glh_50pc"
-        app:layout_constraintEnd_toEndOf="@id/glv_40pc"
+        app:layout_constraintEnd_toEndOf="@id/glv_30pc"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/glh_45pc" />
 
@@ -416,18 +504,18 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@id/glh_50pc"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/glv_40pc"
+        app:layout_constraintStart_toStartOf="@id/glv_30pc"
         app:layout_constraintTop_toBottomOf="@id/glh_45pc">
 
         <RadioButton
-            android:id="@+id/radioButton1"
+            android:id="@+id/radioButtonPublic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="Public" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/radioButtonPrivate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Private" />
@@ -440,7 +528,7 @@
         android:onClick="addEvent"
         android:text="Add Event"
         app:layout_constraintBottom_toTopOf="@id/glh_60pc"
-        app:layout_constraintEnd_toEndOf="@id/glv_40pc"
+        app:layout_constraintEnd_toEndOf="@id/glv_30pc"
         app:layout_constraintStart_toStartOf="@id/glv_20pc"
         app:layout_constraintTop_toBottomOf="@id/glh_50pc" />
 
@@ -491,9 +579,9 @@
     <!--    Photo Section-->
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="0dp"
+        android:layout_width="250dp"
         android:layout_height="0dp"
-        android:layout_margin="8dp"
+        android:layout_margin="15dp"
         android:contentDescription="image from camera app"
         app:layout_constraintBottom_toTopOf="@id/glh_95pc"
         app:layout_constraintEnd_toEndOf="parent"
@@ -507,7 +595,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:onClick="openCameraApp"
-        android:text="Camera"
+        android:text="Upload Image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

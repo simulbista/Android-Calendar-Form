@@ -240,7 +240,7 @@
 <!--    start-time input fields (hour, min and am/pm-->
     <Button
         android:id="@+id/eventStartDateBtn"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="38dp"
         android:text=""
         android:onClick="setStartDate"
@@ -325,7 +325,7 @@
 
     <Button
         android:id="@+id/eventEndDateBtn"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="38dp"
         android:text=""
         android:onClick="setEndDate"
@@ -441,7 +441,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingBottom="70dp"
-        android:text="Event Description:"
+        android:text="Event Desc:"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@id/glh_40pc"
         app:layout_constraintEnd_toEndOf="@id/glv_30pc"

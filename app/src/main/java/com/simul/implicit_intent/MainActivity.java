@@ -11,6 +11,7 @@ import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
@@ -40,20 +41,23 @@ public class MainActivity extends AppCompatActivity {
     private Button endDateBtn;
     private Button startTimeBtn;
     private Button endTimeBtn;
-//    toggle
+    //    toggle
     private SwitchMaterial switchMaterial;
     boolean fullDayEventFlag = false;
-//    time toggle color
+    //    time toggle color
     private ColorStateList trackTintList;
     private EditText eventTitleInput;
     private EditText eventDescInput;
     private EditText eventEmailsInput;
 
-//    access type flag
+    //    access type flag
     String accessType = "public";
 
     //event type
     RadioGroup eventAccessTypeGroup;
+
+    Calendar startCalendar = Calendar.getInstance();
+    Calendar endCalendar = Calendar.getInstance();
 
 
     //setting the current date to defaultCurrentDate
@@ -106,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                     switchMaterial.setTrackTintList(trackTintList);
 
                     fullDayEventFlag = true;
-                }else{
+                } else {
                     //not full day event
 
                     //enable the time buttons
@@ -168,14 +172,32 @@ public class MainActivity extends AppCompatActivity {
         //access type(public/private)
         eventAccessTypeGroup = findViewById(R.id.eventAccessTypeGroup);
         int selectedRadioButton = eventAccessTypeGroup.getCheckedRadioButtonId();
-        if(selectedRadioButton== R.id.radioButtonPublic) accessType = "public";
+        if (selectedRadioButton == R.id.radioButtonPublic) accessType = "public";
         else accessType = "private";
 
-
         //validation
-        if(!eTitle.isEmpty() && !eStartDate.isEmpty() && !eEndDate.isEmpty() && !inviteesEmailList.isEmpty()){
-            //validated, good to proceed
-        }else{
+        if (!eTitle.isEmpty() && !eStartDate.isEmpty() && !eEndDate.isEmpty() && !inviteesEmailList.isEmpty()) {
+            //validated, good to proceed with adding the event to the calendar
+            Intent intent = new Intent(Intent.ACTION_INSERT);
+            intent.setData(CalendarContract.CONTENT_URI);
+
+            intent.putExtra(CalendarContract.Events.TITLE, eTitle).putExtra(CalendarContract.Events.DESCRIPTION, eDesc).putExtra(CalendarContract.Events.ALL_DAY, fullDayEventFlag);
+
+            if (accessType.equals("public"))
+                intent.putExtra(CalendarContract.Events.ACCESS_LEVEL, CalendarContract.Events.ACCESS_PUBLIC);
+            else
+                intent.putExtra(CalendarContract.Events.ACCESS_LEVEL, CalendarContract.Events.ACCESS_PRIVATE);
+
+            //need to convert time to millisecond before pushing it to the calendar
+            long startTimeMs = startCalendar.getTimeInMillis();
+            long endTimeMs = endCalendar.getTimeInMillis();
+            intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, startTimeMs);
+            intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTimeMs);
+
+            //success toast
+            Toast.makeText(this, "Event added successfully!", Toast.LENGTH_SHORT).show();
+
+        } else {
             //something wrong with the input (i.e. not all required fields have data)
             Toast.makeText(this, "Please make sure all the required fields have data!", Toast.LENGTH_SHORT).show();
         }
@@ -238,8 +260,19 @@ public class MainActivity extends AppCompatActivity {
                 String formattedDate = sdf.format(calendar.getTime());
 
                 btn.setText(formattedDate);
+
+                //storing the chosen date in Calendar object (required when creating the event)
+                if (btn == startDateBtn) {
+                    startCalendar.set(Calendar.YEAR, year);
+                    startCalendar.set(Calendar.MONTH, month);
+                    startCalendar.set(Calendar.DAY_OF_MONTH, day);
+                } else if (btn == endDateBtn) {
+                    endCalendar.set(Calendar.YEAR, year);
+                    endCalendar.set(Calendar.MONTH, month);
+                    endCalendar.set(Calendar.DAY_OF_MONTH, day);
+                }
             }
-        }, 2023, 03, 06);
+        }, 2023, 04, 22);
         dialog.show();
     }
 
@@ -252,6 +285,16 @@ public class MainActivity extends AppCompatActivity {
                 String ampm = "am";
                 if (hour > 12) ampm = "pm";
                 btn.setText(String.valueOf(hour) + ":" + String.valueOf(min) + ' ' + ampm);
+
+                //storing the chosen time in Calendar object (required when creating the event)
+                if (btn == startTimeBtn) {
+                    startCalendar.set(Calendar.HOUR_OF_DAY, hour);
+                    startCalendar.set(Calendar.MINUTE, min);
+                } else if (btn == endTimeBtn) {
+                    endCalendar.set(Calendar.HOUR_OF_DAY, hour);
+                    endCalendar.set(Calendar.MINUTE, min);
+                }
+
             }
         }, 12, 00, true);
         dialog.show();

@@ -265,52 +265,6 @@
         app:layout_constraintStart_toStartOf="@id/glv_70pc"
         app:layout_constraintTop_toBottomOf="@id/glh_10pc" />
 
-    <!--    <TextView-->
-    <!--        android:id="@+id/eventStartStaticHour"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="hr"-->
-    <!--        android:textSize="15sp"-->
-    <!--        app:layout_constraintBottom_toTopOf="@id/glh_15pc"-->
-    <!--        app:layout_constraintEnd_toEndOf="@id/glv_60pc"-->
-    <!--        app:layout_constraintStart_toStartOf="@id/glv_50pc"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/glh_10pc" />-->
-
-    <!--    <EditText-->
-    <!--        android:id="@+id/eventStartTimeMin"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:hint="0"-->
-    <!--        app:layout_constraintBottom_toTopOf="@id/glh_15pc"-->
-    <!--        app:layout_constraintEnd_toEndOf="@id/glv_70pc"-->
-    <!--        app:layout_constraintStart_toStartOf="@id/glv_60pc"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/glh_10pc"/>-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/eventStartStaticMin"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="min"-->
-    <!--        android:textSize="15sp"-->
-    <!--        app:layout_constraintBottom_toTopOf="@id/glh_15pc"-->
-    <!--        app:layout_constraintEnd_toEndOf="@id/glv_80pc"-->
-    <!--        app:layout_constraintStart_toStartOf="@id/glv_70pc"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/glh_10pc" />-->
-
-
-    <!--    <Spinner-->
-    <!--        android:id="@+id/eventStartTimeAmPm"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:entries="@array/am_pm_options"-->
-    <!--        app:layout_constraintBottom_toTopOf="@id/glh_15pc"-->
-    <!--        app:layout_constraintEnd_toEndOf="@id/glh_90pc"-->
-    <!--        app:layout_constraintStart_toStartOf="@id/glv_80pc"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/glh_10pc"/>-->
-
-    <!--    end of start-time input fields (hour, min and am/pm-->
-
-
     <TextView
         android:id="@+id/eventEnd"
         android:layout_width="wrap_content"

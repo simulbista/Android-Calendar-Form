@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/page_border"
     android:padding="10dp"
     tools:context=".MainActivity">
 
@@ -195,7 +196,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Event Form"
-        android:textSize="20sp"
+        android:textColor="@color/teal_200"
+        android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@id/glh_5pc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -237,15 +239,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/glh_10pc" />
 
-<!--    start-time input fields (hour, min and am/pm-->
+    <!--    start-time input fields (hour, min and am/pm-->
     <Button
         android:id="@+id/eventStartDateBtn"
         android:layout_width="wrap_content"
         android:layout_height="38dp"
-        android:text=""
-        android:onClick="setStartDate"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:onClick="setStartDate"
+        android:text=""
         app:layout_constraintBottom_toTopOf="@id/glh_15pc"
         app:layout_constraintEnd_toEndOf="@id/glv_70pc"
         app:layout_constraintStart_toStartOf="@id/glv_30pc"
@@ -255,56 +257,56 @@
         android:id="@+id/eventStartTimeBtn"
         android:layout_width="0dp"
         android:layout_height="38dp"
-        android:text=""
-        android:onClick="setStartTime"
         android:layout_marginEnd="10dp"
+        android:onClick="setStartTime"
+        android:text=""
         app:layout_constraintBottom_toTopOf="@id/glh_15pc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/glv_70pc"
         app:layout_constraintTop_toBottomOf="@id/glh_10pc" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/eventStartStaticHour"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="hr"-->
-<!--        android:textSize="15sp"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/glh_15pc"-->
-<!--        app:layout_constraintEnd_toEndOf="@id/glv_60pc"-->
-<!--        app:layout_constraintStart_toStartOf="@id/glv_50pc"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/glh_10pc" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/eventStartStaticHour"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="hr"-->
+    <!--        android:textSize="15sp"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/glh_15pc"-->
+    <!--        app:layout_constraintEnd_toEndOf="@id/glv_60pc"-->
+    <!--        app:layout_constraintStart_toStartOf="@id/glv_50pc"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/glh_10pc" />-->
 
-<!--    <EditText-->
-<!--        android:id="@+id/eventStartTimeMin"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:hint="0"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/glh_15pc"-->
-<!--        app:layout_constraintEnd_toEndOf="@id/glv_70pc"-->
-<!--        app:layout_constraintStart_toStartOf="@id/glv_60pc"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/glh_10pc"/>-->
+    <!--    <EditText-->
+    <!--        android:id="@+id/eventStartTimeMin"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:hint="0"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/glh_15pc"-->
+    <!--        app:layout_constraintEnd_toEndOf="@id/glv_70pc"-->
+    <!--        app:layout_constraintStart_toStartOf="@id/glv_60pc"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/glh_10pc"/>-->
 
-<!--    <TextView-->
-<!--        android:id="@+id/eventStartStaticMin"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="min"-->
-<!--        android:textSize="15sp"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/glh_15pc"-->
-<!--        app:layout_constraintEnd_toEndOf="@id/glv_80pc"-->
-<!--        app:layout_constraintStart_toStartOf="@id/glv_70pc"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/glh_10pc" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/eventStartStaticMin"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="min"-->
+    <!--        android:textSize="15sp"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/glh_15pc"-->
+    <!--        app:layout_constraintEnd_toEndOf="@id/glv_80pc"-->
+    <!--        app:layout_constraintStart_toStartOf="@id/glv_70pc"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/glh_10pc" />-->
 
 
-<!--    <Spinner-->
-<!--        android:id="@+id/eventStartTimeAmPm"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:entries="@array/am_pm_options"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/glh_15pc"-->
-<!--        app:layout_constraintEnd_toEndOf="@id/glh_90pc"-->
-<!--        app:layout_constraintStart_toStartOf="@id/glv_80pc"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/glh_10pc"/>-->
+    <!--    <Spinner-->
+    <!--        android:id="@+id/eventStartTimeAmPm"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:entries="@array/am_pm_options"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/glh_15pc"-->
+    <!--        app:layout_constraintEnd_toEndOf="@id/glh_90pc"-->
+    <!--        app:layout_constraintStart_toStartOf="@id/glv_80pc"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/glh_10pc"/>-->
 
     <!--    end of start-time input fields (hour, min and am/pm-->
 
@@ -327,10 +329,10 @@
         android:id="@+id/eventEndDateBtn"
         android:layout_width="wrap_content"
         android:layout_height="38dp"
-        android:text=""
-        android:onClick="setEndDate"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:onClick="setEndDate"
+        android:text=""
         app:layout_constraintBottom_toTopOf="@id/glh_20pc"
         app:layout_constraintEnd_toEndOf="@id/glv_70pc"
         app:layout_constraintStart_toStartOf="@id/glv_30pc"
@@ -340,101 +342,26 @@
         android:id="@+id/eventEndTimeBtn"
         android:layout_width="0dp"
         android:layout_height="38dp"
-        android:text=""
-        android:onClick="setEndTime"
         android:layout_marginEnd="10dp"
+        android:onClick="setEndTime"
+        android:text=""
         app:layout_constraintBottom_toTopOf="@id/glh_20pc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/glv_70pc"
-        app:layout_constraintTop_toBottomOf="@id/glh_15pc" />
-<!--    <EditText-->
-<!--        android:id="@+id/eventEndTimeHour"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:hint="12"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/glh_20pc"-->
-<!--        app:layout_constraintEnd_toEndOf="@id/glv_50pc"-->
-<!--        app:layout_constraintStart_toStartOf="@id/glv_30pc"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/glh_15pc" />-->
+        app:layout_constraintTop_toBottomOf="@id/glh_15pc"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/eventEndStaticHour"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="hr"-->
-<!--        android:textSize="15sp"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/glh_20pc"-->
-<!--        app:layout_constraintEnd_toEndOf="@id/glv_60pc"-->
-<!--        app:layout_constraintStart_toStartOf="@id/glv_50pc"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/glh_15pc" />-->
-
-<!--    <EditText-->
-<!--        android:id="@+id/eventEndTimeMin"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:hint="0"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/glh_20pc"-->
-<!--        app:layout_constraintEnd_toEndOf="@id/glv_70pc"-->
-<!--        app:layout_constraintStart_toStartOf="@id/glv_60pc"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/glh_15pc"/>-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/eventEndStaticMin"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="min"-->
-<!--        android:textSize="15sp"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/glh_20pc"-->
-<!--        app:layout_constraintEnd_toEndOf="@id/glv_80pc"-->
-<!--        app:layout_constraintStart_toStartOf="@id/glv_70pc"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/glh_15pc" />-->
-
-
-<!--    <Spinner-->
-<!--        android:id="@+id/eventEndTimeAmPm"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:entries="@array/am_pm_options"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/glh_20pc"-->
-<!--        app:layout_constraintEnd_toEndOf="@id/glh_90pc"-->
-<!--        app:layout_constraintStart_toStartOf="@id/glv_80pc"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/glh_15pc"/>-->
-
-    <!--    end of end-time input fields (hour, min and am/pm-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/eventAllDay"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="All Day Event:"-->
-<!--        android:textSize="15sp"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/glh_25pc"-->
-<!--        app:layout_constraintEnd_toEndOf="@id/glv_30pc"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/glh_20pc" />-->
-
-<!--    <ToggleButton-->
-<!--        android:id="@+id/eventAllDayInput"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:checked="true"-->
-<!--        android:textOff="Off"-->
-<!--        android:textOn="On"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/glh_25pc"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="@id/glv_30pc"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/glh_20pc" />-->
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/eventAllDayInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="All Day Event"
-        app:thumbTint="@color/switch_thumb_color"
-        app:trackTint="@color/switch_track_color_off"
         app:layout_constraintBottom_toTopOf="@id/glh_25pc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/glh_20pc"/>
+        app:layout_constraintTop_toBottomOf="@id/glh_20pc"
+        app:thumbTint="@color/switch_thumb_color"
+        app:trackTint="@color/switch_track_color_off" />
 
     <TextView
         android:id="@+id/eventDesc"
@@ -451,11 +378,15 @@
     <EditText
         android:id="@+id/eventDescInput"
         android:layout_width="230dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/images_border"
         android:hint="Enter event description!"
+        android:autofillHints="This is a calendar event description!"
         android:inputType="textMultiLine"
         android:maxLines="3"
         android:minHeight="48dp"
+        android:padding="10dp"
         android:textColorHint="#757575"
         app:layout_constraintBottom_toTopOf="@id/glh_40pc"
         app:layout_constraintEnd_toEndOf="parent"
@@ -550,13 +481,16 @@
 
     <EditText
         android:id="@+id/phoneNumberField"
-        android:layout_width="230dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:autofillHints="10 digit phone number"
+        android:background="@drawable/images_border"
         android:hint="Enter phone number!"
         android:inputType="phone"
         android:minHeight="48dp"
+        android:layout_margin="30dp"
         android:textColorHint="#757575"
+        android:paddingStart="30dp"
         app:layout_constraintBottom_toTopOf="@id/glh_65pc"
         app:layout_constraintEnd_toEndOf="@id/glv_80pc"
         app:layout_constraintStart_toStartOf="parent"
@@ -582,17 +516,18 @@
         android:layout_width="250dp"
         android:layout_height="0dp"
         android:layout_margin="15dp"
+        android:background="@drawable/images_border"
         android:contentDescription="image from camera app"
+        android:padding="5dp"
         app:layout_constraintBottom_toTopOf="@id/glh_95pc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/glh_65pc"
-        app:srcCompat="@android:color/background_light" />
+        app:layout_constraintTop_toBottomOf="@id/glh_65pc" />
 
     <Button
         android:id="@+id/cameraBtn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_margin="10dp"
         android:onClick="openCameraApp"
         android:text="Upload Image"

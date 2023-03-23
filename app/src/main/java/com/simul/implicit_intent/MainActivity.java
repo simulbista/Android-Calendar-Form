@@ -32,9 +32,12 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
     private static final int PHOTO_REQUEST = 300;
+    //camera (photo)
     private ActivityResultLauncher<Intent> cameraLauncher;
     EditText phoneNumberField;
     private Button startDateBtn;
@@ -49,18 +52,17 @@ public class MainActivity extends AppCompatActivity {
     private EditText eventTitleInput;
     private EditText eventDescInput;
     private EditText eventEmailsInput;
-
     //    access type flag
     String accessType = "public";
-
     //event type
     RadioGroup eventAccessTypeGroup;
-
+    //calendar variables that stores the input calendar values for both start/end date/time
+    //is required when entered these values in the calendar
     Calendar startCalendar = Calendar.getInstance();
     Calendar endCalendar = Calendar.getInstance();
 
 
-    //setting the current date to defaultCurrentDate
+    //setting the current date to defaultCurrentDate`
     Date currentDate = new Date();
     SimpleDateFormat dateFormatDate = new SimpleDateFormat("MMM dd, yyyy");
     String defaultCurrentDate = dateFormatDate.format(currentDate);
@@ -76,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //calling setDefaultDateTime method - start/end date/time when the app opens
-        //so that it can display the default date/time
+        //so that it can display the current date/time by default
         startDateBtn = findViewById(R.id.eventStartDateBtn);
         endDateBtn = findViewById(R.id.eventEndDateBtn);
         startTimeBtn = findViewById(R.id.eventStartTimeBtn);
@@ -165,10 +167,9 @@ public class MainActivity extends AppCompatActivity {
         //event description
         eventDescInput = findViewById(R.id.eventDescInput);
         String eDesc = eventDescInput.getText().toString();
-        //invitees emails (storing all emails in an array list)
+        //invitees emails
         eventEmailsInput = findViewById(R.id.eventEmailsInput);
         String eInviteesEmails = eventEmailsInput.getText().toString();
-        ArrayList<String> inviteesEmailList = new ArrayList<>(Arrays.asList(eInviteesEmails.split(",")));
         //access type(public/private)
         eventAccessTypeGroup = findViewById(R.id.eventAccessTypeGroup);
         int selectedRadioButton = eventAccessTypeGroup.getCheckedRadioButtonId();
@@ -176,27 +177,33 @@ public class MainActivity extends AppCompatActivity {
         else accessType = "private";
 
         //validation
-        if (!eTitle.isEmpty() && !eStartDate.isEmpty() && !eEndDate.isEmpty() && !inviteesEmailList.isEmpty()) {
-            //validated, good to proceed with adding the event to the calendar
-            Intent intent = new Intent(Intent.ACTION_INSERT);
-            intent.setData(CalendarContract.CONTENT_URI);
+        if (!eTitle.isEmpty() && !eStartDate.isEmpty() && !eEndDate.isEmpty() && !eInviteesEmails.isEmpty()) {
+            //null check passed
 
-            intent.putExtra(CalendarContract.Events.TITLE, eTitle).putExtra(CalendarContract.Events.DESCRIPTION, eDesc).putExtra(CalendarContract.Events.ALL_DAY, fullDayEventFlag);
+            // email validity check passed, , good to proceed with adding the event to the calendar
+            if (areAllEmailsValid(eInviteesEmails)) {
+                Intent intent = new Intent(Intent.ACTION_INSERT);
+                intent.setData(CalendarContract.Events.CONTENT_URI);
 
-            if (accessType.equals("public"))
-                intent.putExtra(CalendarContract.Events.ACCESS_LEVEL, CalendarContract.Events.ACCESS_PUBLIC);
-            else
-                intent.putExtra(CalendarContract.Events.ACCESS_LEVEL, CalendarContract.Events.ACCESS_PRIVATE);
+                intent.putExtra(CalendarContract.Events.TITLE, eTitle).putExtra(CalendarContract.Events.ALL_DAY, fullDayEventFlag).putExtra(CalendarContract.Events.DESCRIPTION, eDesc).putExtra(Intent.EXTRA_EMAIL, eInviteesEmails);
 
-            //need to convert time to millisecond before pushing it to the calendar
-            long startTimeMs = startCalendar.getTimeInMillis();
-            long endTimeMs = endCalendar.getTimeInMillis();
-            intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, startTimeMs);
-            intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTimeMs);
+                if (accessType.equals("public"))
+                    intent.putExtra(CalendarContract.Events.ACCESS_LEVEL, CalendarContract.Events.ACCESS_PUBLIC);
+                else
+                    intent.putExtra(CalendarContract.Events.ACCESS_LEVEL, CalendarContract.Events.ACCESS_PRIVATE);
 
-            //success toast
-            Toast.makeText(this, "Event added successfully!", Toast.LENGTH_SHORT).show();
-
+                //need to convert time to millisecond before pushing (date and time) to the calendar
+                long startTimeMs = startCalendar.getTimeInMillis();
+                long endTimeMs = endCalendar.getTimeInMillis();
+                intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, startTimeMs);
+                intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTimeMs);
+                //start the actyivity of insert data into the app calendar
+                startActivity(intent);
+                //success toast
+                Toast.makeText(this, "Event added successfully!", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Please make sure you have entered valid email addresses!", Toast.LENGTH_SHORT).show();
+            }
         } else {
             //something wrong with the input (i.e. not all required fields have data)
             Toast.makeText(this, "Please make sure all the required fields have data!", Toast.LENGTH_SHORT).show();
@@ -212,6 +219,22 @@ public class MainActivity extends AppCompatActivity {
         return phoneNumber.matches(regex);
     }
 
+    //email validator helper method
+    public static boolean areAllEmailsValid(String eInviteesEmails) {
+        //converting the input of string of emails (separated by commas) to individual emails and then storing them in an arraylist
+        ArrayList<String> emails = new ArrayList<>(Arrays.asList(eInviteesEmails.split(",")));
+        String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+        Pattern pattern = Pattern.compile(regex);
+        for (String email : emails) {
+            Matcher matcher = pattern.matcher(email);
+            if (!matcher.matches()) {
+                return false; // return false if any email address is invalid
+            }
+        }
+        return true; // return true if all email addresses are valid
+    }
+
+    //methods to set the start/end date/time chosen from the date/time picker dialog box to the app UI
     public void setStartDate(View view) {
         OpenDatePicker(startDateBtn);
     }
@@ -223,7 +246,6 @@ public class MainActivity extends AppCompatActivity {
     public void setStartTime(View view) {
         OpenTimePicker(startTimeBtn);
     }
-
 
     public void setEndTime(View view) {
         OpenTimePicker(endTimeBtn);
@@ -243,7 +265,8 @@ public class MainActivity extends AppCompatActivity {
         startDateBtn.setText(defaultCurrentDate);
         endDateBtn.setText(defaultCurrentDate);
         startTimeBtn.setText(defaultCurrentTime);
-        endTimeBtn.setText(defaultCurrentTime);
+        //passing 1 (hr) to incrementCurrentTime method to return a string with time plus 1 hr
+        endTimeBtn.setText(incrementCurrentTime(1));
     }
 
     //set date using date picker dialog box
@@ -259,6 +282,7 @@ public class MainActivity extends AppCompatActivity {
                 calendar.set(year, month, day);
                 String formattedDate = sdf.format(calendar.getTime());
 
+                //set the formatted date to the start/end date in the UI based on btn input
                 btn.setText(formattedDate);
 
                 //storing the chosen date in Calendar object (required when creating the event)
@@ -282,6 +306,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
 //            month starts from 0 in datepicker, so for jan it should be 0+1, hence the plus 1
             public void onTimeSet(TimePicker timePicker, int hour, int min) {
+
+                // am/pm logic
                 String ampm = "am";
                 if (hour > 12) ampm = "pm";
                 btn.setText(String.valueOf(hour) + ":" + String.valueOf(min) + ' ' + ampm);
@@ -298,6 +324,22 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 12, 00, true);
         dialog.show();
+    }
+
+    //increment the input time by a value (1 hour)
+    //get the current calendar instance, adding the increment value, store it to a string and return it back
+    //also assign it to the endTime (required when data needs to be added to the calendar)
+    private String incrementCurrentTime(int incrementValue) {
+        Calendar calendarIncremented = Calendar.getInstance();
+        calendarIncremented.add(Calendar.HOUR_OF_DAY, incrementValue);
+        Date incrementedTime = calendarIncremented.getTime();
+        SimpleDateFormat dateFormatTime = new SimpleDateFormat("h:mm a");
+        String defaultCurrentTimeIncremented = dateFormatTime.format(incrementedTime);
+
+        endCalendar.set(Calendar.HOUR_OF_DAY, calendarIncremented.HOUR_OF_DAY);
+        endCalendar.set(Calendar.MINUTE, calendarIncremented.MINUTE);
+
+        return defaultCurrentTimeIncremented;
     }
 
 }
